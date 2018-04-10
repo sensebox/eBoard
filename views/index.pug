@@ -1,0 +1,53 @@
+doctype html
+html(lang='en')
+  head
+    title Sensebox - Dashboard
+    meta(name='theme-color', content='#ff7f2a', charset='UTF-8')
+    link(rel='icon', href='/images/favicon.png', type='image/png')
+    // Latest compiled and minified CSS
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/loader.css')
+
+    // AJAX
+    link(href='//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/css/normalize.min.css', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    // Font Awesome
+    script(defer='', src='https://use.fontawesome.com/releases/v5.0.8/js/all.js')
+    // Sweet Alerts
+    script(src='https://unpkg.com/sweetalert/dist/sweetalert.min.js')
+    // Chart.js
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js')
+  body
+    .icon-bar
+      a#openSenseMap(href='https://opensensemap.org/')
+        i.fa.fa-globe
+      a#Settings(href='#')
+        i.fas.fa-cog
+
+    #warning.alert.alert-warning.alert-dismissible(style='display:none')
+      a.close(href='#' data-dismiss='alert' aria-label='close') &times;
+      strong Achtung!       
+      | Ihre Box scheint nicht mehr aktuell zu sein, überprüfen sie Ihre senseBox und/oder wenden sie sich an 
+      | unseren 
+      a(href='mailto:sensebox@support.de' target='_top') Support 
+    form(id='hidden' class='fakeForm' action="" style='display:none')
+      input#input_hidden(type="text" value=hidden)
+    #loader(style='display:none')
+    #row_1.row
+    #row_2.row
+    #row_3.row.last
+    script(type='text/javascript').
+    // jQuery library
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js')
+    // Latest compiled JavaScript
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    // Own JS
+    script(src='/javascripts/app.js')
+    script(src='/javascripts/statistics.js')
+    script(src='/javascripts/createHTML.js')
+    script(src='/javascripts/styles.js')
+
+    // timeago
+    script(src='/javascripts/vendor/jquery.timeago.js')
