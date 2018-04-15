@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sensebox - Dashboard</title>
+    <meta name="theme-color" content="#ff7f2a" charset="UTF-8">
+    <link rel="icon" href="public/images/favicon.png" type="image/png">
+    <!-- Latest compiled and minified CSS[Bootstrap]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Eigene Stylesheets-->
+    <link rel="stylesheet" href="public/stylesheets/style.css">
+    <link rel="stylesheet" href="public/stylesheets/loader.css">
+    <!--CSS fuer Sidebar-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- AJAX-->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/css/normalize.min.css" rel="stylesheet" type="text/css">
+    <!-- Font Awesome-->
+    <script defer="" src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <!-- Sweet Alerts-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Chart.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  </head>
+  <body>
+    <div class="icon-bar"><a id="openSenseMap" href="https://opensensemap.org/"><i class="fa fa-globe"></i></a><a id="Settings" href="#"><i class="fas fa-cog"></i></a></div>
+    <div id="warning" style="display:none" class="alert alert-warning alert-dismissible"><a href="#" data-dismiss="alert" aria-label="close" class="close">&times;</a><strong>Achtung!       </strong>Ihre Box scheint nicht mehr aktuell zu sein, überprüfen sie Ihre senseBox und/oder wenden sie sich an
+      unseren <a href="mailto:sensebox@support.de" target="_top">Support </a>
+    </div>
+    <form id="hidden" action="" style="display:none" class="fakeForm">
+      <input id="input_hidden" type="text">
+    </form>
+    <div id="loader" style="display:none"></div>
+    <div id="row_1" class="row"></div>
+    <div id="row_2" class="row"></div>
+    <div id="row_3" class="row last"></div>
+    <script type="text/javascript"></script>
+    <!-- jQuery library-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <!-- Latest compiled JavaScript[Bootstrap]-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Own JS-->
+    <script src="public/javascripts/app.js"></script>
+    <script src="public/javascripts/statistics.js"></script>
+    <script src="public/javascripts/createHTML.js"></script>
+    <script src="public/javascripts/styles.js"></script>
+    <!-- timeago-->
+    <script src="public/javascripts/vendor/jquery.timeago.js"></script>
+  </body>
+</html>
