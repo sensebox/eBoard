@@ -52,24 +52,8 @@ div title {
     bottom: 0px;
     right: 0px;
 }
-
-#tile0_h1 {
-    color:#000000ec
-}
-#tile1_h1 {
-    color:#000000ec
-}
-#tile2_h1 {
-    color:#000000ec
-}
-#tile3_h1 {
-    color:#000000ec
-}
-#tile4_h1 {
-    color:#000000ec
-}
-#tile5_h1 {
-    color:#000000ec
+.h1 {
+    line-height: 0.8 !important;
 }
 
 

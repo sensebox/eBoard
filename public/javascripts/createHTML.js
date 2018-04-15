@@ -19,7 +19,7 @@ function ajaxRequest(senseboxid){
                     // Wenn Sensor registriert wurde, aber noch nie gemessen hat wird dieser Sensor übersprungen
                     if(res.sensors[i].lastMeasurement===null||res.sensors[i].lastMeasurement==undefined)continue;
                     createTiles(res,i);
-                    updateBackground(res.sensors[i].title,i);
+                    updateBackground(res,i);
                     updateh1(res,i);
                     
                 }

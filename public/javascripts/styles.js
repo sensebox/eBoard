@@ -28,37 +28,38 @@ var grey = 'linear-gradient(to bottom, rgba(242,246,248,1) 0%,rgba(216,225,231,1
     Weitere Recherche im Bereich Luftdruck, Luftfeuchte, Schall, Niederschlagsmenge
 
 */
-function updateBackground(phenomenon,i){
+function updateBackground(res,i){
 
+    
     if(document.getElementById('tile'+i)!==null){
         
-
+        var phenomenon = res.sensors[i].title;
+        var length = res.sensors.length;
         var tile = document.getElementById('tile'+i);
         var text = document.getElementById('tile'+i+"_h1");
         var value = parseInt(tile.innerText);
         
+        if(length>5)document.getElementById('tile'+i+'_h1').style.lineHeight=0.8;
+
         switch(phenomenon){
 
             case 'Temperatur':
 
                 if(value<=10){
                     // change tile to lightblue
-                    console.log("1");
                     tile.style['background']=lightblue;
-                    text.innerHTML='<i class="fas fa-snowflake"></i> '+text.innerHTML;
-                    console.log("2");
-
+                    if(length<5)text.innerHTML='<i class="fas fa-snowflake"></i> '+text.innerHTML;
                 };
                 if(value>10 && value < 25){
                     //change tile to yellow
                     tile.style['background']=yellow;
-                    text.innerHTML='<i class="fas fa-sun"></i>'+text.innerHTML;
+                    if(length<5)text.innerHTML='<i class="fas fa-sun"></i>'+text.innerHTML;
 
                 }
                 if(value>=25){
                     //change tile to red
                     tile.style['background']=red;
-                    text.innerHTML='<i class="fas fa-sun"></i>'+text.innerHTML;
+                    if(length<5)text.innerHTML='<i class="fas fa-sun"></i>'+text.innerHTML;
 
                 }
                 break;
@@ -67,19 +68,19 @@ function updateBackground(phenomenon,i){
                 if(value<=30){
                     //change tile to green
                     tile.style['background']=green;
-                    text.innerHTML='<i class="far fa-thumbs-up"></i>'+text.innerHTML;
+                    if(length<5)text.innerHTML='<i class="far fa-thumbs-up"></i>'+text.innerHTML;
 
                 }
                 if(value>30&&value<50){
                     tile.style['background']=yellow;
                     //change tile to yellow 
-                    text.innerHTML='<i class="far fa-heart"></i>'+text.innerHTML;
+                    if(length<5)text.innerHTML='<i class="far fa-heart"></i>'+text.innerHTML;
 
                 }
                 if(value>=50){
                     //change tile to red
                     tile.style['background']=red;
-                    text.innerHTML='<i class="fas fa-heart"></i>'+text.innerHTML;
+                    if(length<5)text.innerHTML='<i class="fas fa-heart"></i>'+text.innerHTML;
 
                 }
                 break;
@@ -88,20 +89,20 @@ function updateBackground(phenomenon,i){
                 if(value<=10){
                     //change tile to green
                     tile.style['background']=green;
-                    text.innerHTML='<i class="far fa-thumbs-up"></i>'+text.innerHTML;
+                    if(length<5)text.innerHTML='<i class="far fa-thumbs-up"></i>'+text.innerHTML;
 
                 }                
 
                 if(value > 10 && value < 25){
                     //change tile to yellow 
                     tile.style['background']=yellow;
-                    text.innerHTML='<i class="far fa-heart"></i>'+text.innerHTML;
+                    if(length<5)text.innerHTML='<i class="far fa-heart"></i>'+text.innerHTML;
 
                 }
                 if(value>=25){
                     //change tile to red 
                     tile.style['background']=red;
-                    text.innerHTML='<i class="fas fa-heart"></i>'+text.innerHTML;
+                    if(length<5)text.innerHTML='<i class="fas fa-heart"></i>'+text.innerHTML;
 
                 }
                 break;
@@ -110,7 +111,7 @@ function updateBackground(phenomenon,i){
                 if(value<=100){
                     //change tile to green
                     tile.style['background']=green;
-                    text.innerHTML='<i class="far fa-thumbs-up"></i>'+text.innerHTML;
+                    if(length<5) text.innerHTML='<i class="far fa-thumbs-up"></i>'+text.innerHTML;
 
                 }
                 if(value > 100 && value < 200){
@@ -131,7 +132,8 @@ function updateBackground(phenomenon,i){
 
             case 'rel. Luftfeuchte':
                 tile.style['background']=lightblue;
-                text.innerHTML='<i class="fas fa-tint"></i>'+text.innerHTML;
+                if(length<5)text.innerHTML='<i class="fas fa-tint"></i>'+text.innerHTML;
+
                 break;
 
             case 'Luftdruck':
@@ -142,10 +144,10 @@ function updateBackground(phenomenon,i){
 
                 tile.style['background']=grey;
 
-                if(value>10000){
+                if(value>10000 && length<5){
                     text.innerHTML='<i class="fas fa-sun"></i>'+text.innerHTML;
                 }
-                if(value<10000){
+                if(value<10000 && length<5 ){
                     text.innerHTML='<i class="fas fa-moon"></i>'+text.innerHTML;
 
                 }
