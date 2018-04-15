@@ -1,11 +1,11 @@
 
 // color Variables 
-var red = 'linear-gradient(to bottom, rgba(248,80,50,1) 0%,rgba(241,111,92,1) 50%,rgba(246,41,12,1) 51%,rgba(240,47,23,1) 71%,rgba(231,56,39,1) 100%)';
-var green = 'linear-gradient(to bottom, rgba(191,210,85,1) 0%,rgba(142,185,42,1) 50%,rgba(114,170,0,1) 51%,rgba(158,203,45,1) 100%)';
-var yellow = 'linear-gradient(to bottom, rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%)';
-var lightblue ='linear-gradient(to bottom, rgba(184,225,252,1) 0%,rgba(169,210,243,1) 10%,rgba(144,186,228,1) 25%,rgba(144,188,234,1) 37%,rgba(144,191,240,1) 50%,rgba(107,168,229,1) 51%,rgba(162,218,245,1) 83%,rgba(189,243,253,1) 100%)';
-var DarkMagenta = 'linear-gradient(to bottom, rgba(203,96,179,1) 0%,rgba(193,70,161,1) 50%,rgba(168,0,119,1) 51%,rgba(219,54,164,1) 100%)';
-var grey = 'linear-gradient(to bottom, rgba(242,246,248,1) 0%,rgba(216,225,231,1) 50%,rgba(181,198,208,1) 51%,rgba(224,239,249,1) 100%)';
+var red = ' #FF4136 ';
+var green = '#2ECC40 ';
+var yellow = ' #FFDC00 ';
+var lightblue = ' #0074D9 ';
+var DarkMagenta = ' #B10DC9 ';
+var grey = ' #DDDDDD ';
 
 // Farbwerte für alte Messwerte(gleiches wie vorher nur angegraut)
 
