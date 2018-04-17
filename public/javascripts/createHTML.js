@@ -121,7 +121,7 @@ function createTiles(res,i){
         "<input id='tile"+i+"_check"+"'"+"type='checkbox'>"+
         "<span class='slider round'>"+"</span>"+
         "</label>"+
-        "<h1 id='tile"+i+"_h1"+"'"+"  class='temp' >"+wert_fuer_h1+"</h1>"+
+        "<h1 style='font-family:Brix-slab' id='tile"+i+"_h1"+"'"+"  class='temp' >"+wert_fuer_h1+"</h1>"+
         "<time id='tile"+i+"_time'"+"class='timeago' datetime=''>"+wert_fuer_zeit+"</time>"+
         "<span class='hum'' >"+"</span>"+
         "<span class='batt'>"+"</span>"+
