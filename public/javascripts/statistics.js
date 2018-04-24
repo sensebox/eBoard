@@ -53,7 +53,6 @@ function getStatistics(res,i){
             window='150000000';
             break;
     }
-    console.log(window);
 
        //Zusammenbasteln der URL @see : docs.opensensemap.org
     var url = "https://api.opensensemap.org/statistics/descriptive?senseboxid="+senseboxid+
@@ -87,7 +86,7 @@ function getStatistics(res,i){
         if(i !='sensorId'){
             dataArray.push(val);
             // Aus Visuellen Gründen nur Jahr/Monat/Tag anzeigen
-            timeArray.push(i.substring(0,10));
+            timeArray.push(ConvertTime(i));
 
         }
     });

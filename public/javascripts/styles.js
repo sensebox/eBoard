@@ -1,5 +1,5 @@
 
-// color Variables 
+    // color Variables 
 var red = ' #FF4136 ';
 var green = '#2ECC40 ';
 var yellow = ' #FFDC00 ';
@@ -61,10 +61,11 @@ function updateBackground(res,i){
             case 'Temperatur':
 
                 if(value<=10){
-                
+                    /* Abfrage wie lang Messwerte her sind und darauf die Tiles
+                        entsprechend einfärben
+                        */
                     if(differenzWert<stunde){
-                    // change tile to lightblue
-                    tile.style['background']=lightblue;
+                        tile.style['background']=lightblue;
                         if(length<5)
                                     text.innerHTML='<i class="fas fa-snowflake"></i> '+text.innerHTML;
                     }
@@ -78,7 +79,7 @@ function updateBackground(res,i){
                     }
                 };
                 if(value>10 && value < 25){
-                    //change tile to yellow
+                    
                     if(differenzWert<stunde){
                         tile.style['background']=yellow;
                         if(length<5)
@@ -262,7 +263,7 @@ function updateBackground(res,i){
                     }
                 }
                 if(value>=300){
-                    if(differenzWert>stunde){
+                    if(differenzWert<stunde){
                         tile.style['background']=DarkMagenta;
                         }
                     if(differenzWert>stunde){
