@@ -87,8 +87,8 @@ function createTiles(res,i){
 
 
     //Deklarieren der Variable im <div>
- 
-    var title = res.sensors[i].title;
+    var in_wort = "·in·";
+   var title = res.sensors[i].title + in_wort+ res.sensors[i].unit ;
     if(title=="PM10" || title=="PM2.5"){
 
         var str1="Feinstaub:";
@@ -97,11 +97,11 @@ function createTiles(res,i){
 
     }
 
-    title = title.replace(" ","");    
+   title = title.replace(" ","");    
 
-    // Zeitstempel wird generiert
-    var wert_fuer_zeit = "Last measured: "
-        wert_fuer_zeit += jQuery.timeago(res.sensors[i].lastMeasurement.createdAt);
+    // Zeitstempel wird generiert;;;; Zurzeit verworfen vielleicht später noch verwendet
+    // var wert_fuer_zeit = "Last measured: "
+    //     wert_fuer_zeit += jQuery.timeago(res.sensors[i].lastMeasurement.createdAt);
 
 
     // In der globalen Variable kann eingstellt werden wieviel Tiles in eine Zeile gehören (default:2)
@@ -112,7 +112,7 @@ function createTiles(res,i){
 
     var phaenomen = res.sensors[i].unit;
     var wert_fuer_h1 ="";
-        wert_fuer_h1=res.sensors[i].lastMeasurement.value+" "+ res.sensors[i].unit;
+        wert_fuer_h1=res.sensors[i].lastMeasurement.value;
     
     // Parameter in Tile Vorlage einsetzen
     var tile =
@@ -122,7 +122,7 @@ function createTiles(res,i){
         "<span class='slider round'>"+"</span>"+
         "</label>"+
         "<h1 style='font-family:Brix-slab' id='tile"+i+"_h1"+"'"+"  class='temp' >"+wert_fuer_h1+"</h1>"+
-        "<time id='tile"+i+"_time'"+"class='timeago' datetime=''>"+wert_fuer_zeit+"</time>"+
+        "<time id='tile"+i+
         "<span class='hum'' >"+"</span>"+
         "<span class='batt'>"+"</span>"+
         "</div>";
@@ -204,10 +204,9 @@ function updateTiles(senseboxid){
             success: function (res,status,request){
                 for(var i=0;i<res.sensors.length;i++) {
                     // Update nur Messwerte und Zeit die es her ist 
-                    document.getElementById("tile"+i+"_h1").innerHTML = res.sensors[i].lastMeasurement.value +" "+ res.sensors[i].unit;
-                    document.getElementById("tile"+i+"_time").innerHTML ="Last measured: "+ jQuery.timeago(res.sensors[i].lastMeasurement.createdAt);
+                    document.getElementById("tile"+i+"_h1").innerHTML = res.sensors[i].lastMeasurement.value
                     // Ggf. müssen Styles geändert werden(e.g. Temperatur steigt an sodass Tile rot werden soll)
-                    updateBackground(res.sensors[i].title,i);
+                    updateBackground(res,i);
                 }
 
             },

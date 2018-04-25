@@ -7,14 +7,14 @@ function buildSettings (){
     for(var i = 0;i< length;i++){
         var p = document.createElement("p");
         var tile = document.getElementById("tile"+i);
-        p.innerHTML= tile.title+" " ;
+                   p.innerHTML= tile.title+" " ;
         var checkbox = document.createElement("input");
-        var att = document.createAttribute("type");
-        var id = document.createAttribute("id");
-        id.value = "checkbox_"+i;
-        att.value = "checkbox";
-        checkbox.setAttributeNode(att);
-        checkbox.setAttributeNode(id);
+                    var att = document.createAttribute("type");
+                    var id = document.createAttribute("id");
+                    id.value = "checkbox_"+i;
+                    att.value = "checkbox";
+                    checkbox.setAttributeNode(att);
+                    checkbox.setAttributeNode(id);
 
         if(tile.style.display=='none'){
             checkbox.checked = false;
@@ -26,27 +26,21 @@ function buildSettings (){
         content.appendChild(p);
         boxes.push(content.children[i].children[0]);
     } 
-    console.log(boxes);
 
-    // for(var i = 0;i< length;i++){
-        
-
-        
-    //     var tile = document.getElementById("tile"+i);
-    //     console.log(tile);
-    //     var checkbox = boxes;
-    //     console.log(checkbox);
-
-    // }
 
     jQuery.each(boxes,function(i,val){
         var tilenumber = val.id.charAt(9)
+        var tile = document.getElementById("tile"+i);
         $(val).on("click",function(){
-            $('#tile'+tilenumber).toggle();
+           $('#tile'+tilenumber).toggle();
+           tile.addEventListener("change",fixStyle(tile));
+
         });
     });
     
-    console.log(content);
 
         return content; 
     }
+
+    // Wenn alle Elemente der row auf display:none stehen soll die row auf display:none gestellt werden und die anderen 
+    // Reihen werden ihrer Höhe entsprechend angepasst. 

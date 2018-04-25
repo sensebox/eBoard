@@ -348,3 +348,51 @@ function updateh1(res,i){
     
     
 }
+
+function fixStyle(tile){
+    // Alle Elemente des Parents aufzählen wenn alle display:none dann Reihe display:none und height von .row auf 50% 
+    var row = tile.parentElement;
+    console.log(row);
+    var tiles = row.children;
+    var counter = 0; 
+    var shownRows_counter = 0;
+    var rows = document.getElementsByClassName("row");
+    var shownRows = new Array;
+
+
+    for(var i=0;i<tiles.length;i++){       
+        if(tiles[i].style["display"]=="none"){
+            counter+=1;
+        }
+    }
+    if(counter==tiles.length ){
+        $(row).toggle();    
+    }
+
+    for(var i=0;i<rows.length;i++){
+        if(rows[i].style["display"]!=="none"){
+            shownRows_counter+=1;
+            shownRows.push(rows[i]);
+        }
+    }
+    console.log(rows);
+
+            
+
+    switch(shownRows_counter){
+        case 1:
+            shownRows[0].style["height"]="100%"
+            break;
+        case 2:
+            shownRows[0].style["height"]="50%";
+            shownRows[1].style["height"]="50%";
+            break;
+        case 3:
+            shownRows[0].style["height"]="33.3%";
+            shownRows[1].style["height"]="33.3%";
+            shownRows[2].style["height"]="33.3%";
+            break;
+
+    }
+    
+}

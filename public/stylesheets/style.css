@@ -47,6 +47,7 @@ div title {
     top: -5px;
     left: 1px;
     content: attr(title);
+    color: #111111 ;
 }
 
 .temp {

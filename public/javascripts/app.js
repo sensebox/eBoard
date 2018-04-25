@@ -49,6 +49,8 @@ $(document ).ready(function() {
         remove('fakeForm');
     }
 
+    document.getElementById('row_1').addEventListener("change",fixStyle());
+
 }); //End document ready block
 
 
