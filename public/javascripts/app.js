@@ -24,7 +24,7 @@ $(document ).ready(function() {
                     setInterval(function(){
                     updateTiles(senseboxid)
                 },
-                 60000);
+                3600000);
     });
     $('#Settings').on('click',function(){
         swal({

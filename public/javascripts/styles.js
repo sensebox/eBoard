@@ -35,7 +35,7 @@ var default_color =' #7FDBFF ';
     Weitere Recherche im Bereich Luftdruck, Luftfeuchte, Schall, Niederschlagsmenge
 
 */
-function updateBackground(res,i){
+function createBackground(res,i){
 
     
     if(document.getElementById('tile'+i)!==null){
@@ -280,9 +280,8 @@ function updateBackground(res,i){
             case 'rel. Luftfeuchte':
                  if(differenzWert<stunde){
                     tile.style['background']=lightblue;
-                    if(length<5)
-                                text.innerHTML='<i class="fas fa-tint"></i>'+text.innerHTML;
-                    }
+                 }
+                
                 if(differenzWert>stunde){
                     tile.style['background']=blue_gray;
                     $("#warning").fadeIn();
@@ -292,28 +291,17 @@ function updateBackground(res,i){
                     $("#warning").fadeIn();
                 }
                 break;
-            case 'Luftdruck':
-                tile.style['background']=  default_color;
-                break;
-
-            case 'Beleuchtungsstärke':
-
-                tile.style['background']=default_color;
-
-                if(value>10000 && length<5){
-                    text.innerHTML='<i class="fas fa-sun"></i>'+text.innerHTML;
-                }
-                if(value<10000 && length<5 ){
-                    text.innerHTML='<i class="fas fa-moon"></i>'+text.innerHTML;
-
-                }
-
-                break
             default:
-                tile.style['background']=default_color;
-
+                if(differenzWert<stunde){
+                    tile.style['background']=default_color;
+                }
+                if(differenzWert>tag){
+                    tile.style['background']=grey;
+                    $("#warning").fadeIn();
+                }
             }
-}}
+        }
+}
 /* Funktion die Werte die älter als 1 Tag her sind ausgrauen 
    Die Subtraktion zweier Date Objekte gibt die Differenz 
    in Millisekunden wieder
@@ -350,10 +338,12 @@ function updateh1(res,i){
 }
 
 function fixStyle(tile){
+
     // Alle Elemente des Parents aufzählen wenn alle display:none dann Reihe display:none und height von .row auf 50% 
     var row = tile.parentElement;
-    console.log(row);
     var tiles = row.children;
+    var anzahlTiles = tiles.length;
+    // Counter wird benutzt um zu zählen wieviele Tiles versteckt sind 
     var counter = 0; 
     var shownRows_counter = 0;
     var rows = document.getElementsByClassName("row");
@@ -365,17 +355,20 @@ function fixStyle(tile){
             counter+=1;
         }
     }
-    if(counter==tiles.length ){
-        $(row).toggle();    
+    if(counter==anzahlTiles){
+        $(row).hide();    
     }
+    if(counter<anzahlTiles){
 
+        $(row).show();    
+
+    }
     for(var i=0;i<rows.length;i++){
         if(rows[i].style["display"]!=="none"){
             shownRows_counter+=1;
             shownRows.push(rows[i]);
         }
     }
-    console.log(rows);
 
             
 
@@ -396,3 +389,34 @@ function fixStyle(tile){
     }
     
 }
+// 
+function updateBackground(res,i){
+    console.log("called")
+        if(document.getElementById('tile'+i)!==null){
+            
+    
+            var time_ago = new Date (res.sensors[i].lastMeasurement.createdAt);
+            var actual_date = new Date ()
+            var stunde = 3600000;
+            var tag = 86400000;
+                       
+            var differenzWert = actual_date - time_ago;
+    
+            var phenomenon = res.sensors[i].title;
+            var length = res.sensors.length;
+            var tile = document.getElementById('tile'+i);
+            var text = document.getElementById('tile'+i+"_h1");
+            var value = parseInt(tile.innerText);
+                    if(differenzWert<stunde){
+                        return;
+                    }
+                    if(differenzWert>tag){
+                        $("#warning").fadeIn();
+                    }
+                
+            }
+        }
+
+    
+
+
