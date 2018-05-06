@@ -23,6 +23,8 @@ function ajaxRequest(senseboxid){
                     updateh1(res,i);
                     
                 }
+                addTime();
+                startTime();
                 // For loop um Statistiken im Hintergrund zu laden
                 for(var i=0;i<res.sensors.length;i++) {
                     if(res.sensors[i].lastMeasurement===null || res.sensors[i].lastMeasurement==undefined)continue;
@@ -115,11 +117,12 @@ function createTiles(res,i){
         wert_fuer_h1=res.sensors[i].lastMeasurement.value;
     
     // Parameter in Tile Vorlage einsetzen
+    //        "<span class='slider round'>"+"</span>"+
+
     var tile =
         "<div class='cell front' id='tile"+i+"'"+"title="+title+">"+
         "<label class='switch medium'>"+
         "<input id='tile"+i+"_check"+"'"+"type='checkbox'>"+
-        "<span class='slider round'>"+"</span>"+
         "</label>"+
         "<h1 style='font-family:Brix-slab' id='tile"+i+"_h1"+"'"+"  class='temp' >"+wert_fuer_h1+"</h1>"+
         "<time id='tile"+i+
@@ -232,4 +235,47 @@ function GetRealLength(sensoren){
 
     }
     return realLength;
+}
+
+/* Funktion für Zeitdarstellung 
+Quelle: https://www.w3schools.com/js/tryit.asp?filename=tryjs_timing_clock
+*/
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('tile_time').innerHTML =
+    h + ":" + m;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+function addTime(){
+
+
+    var i = document.getElementsByClassName("cell front").length
+    var title = "Uhrzeit";
+    var wert_fuer_h1 ="20:15";
+    var tile =
+    "<div class='cell front' style='background:   #FF4136   ' id='tile"+i+"'"+"title="+title+">"+
+    "<label class='switch medium'>"+
+    "<input id='tile"+i+"_check"+"'"+"type='checkbox'>"+
+    "</label>"+
+    "<h1 style='font-family:Brix-slab' id='tile_time"+"'"+"  class='temp' >"+wert_fuer_h1+"</h1>"+
+    "<time id='tile"+i+
+    "<span class='hum'' >"+"</span>"+
+    "<span class='batt'>"+"</span>"+
+    "</div>";
+
+    $('#row_'+aktuelleZeile).append(tile);
+
+
+
+    
 }

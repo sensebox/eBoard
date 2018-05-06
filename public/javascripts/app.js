@@ -28,7 +28,7 @@ $(document ).ready(function() {
     });
     $('#Settings').on('click',function(){
         swal({
-            text: "Einstellungen",
+            text: "Verschiedene Einstellungsmgöglichkeiten",
             icon:"info",
             content:buildSettings(),
             buttons:{
