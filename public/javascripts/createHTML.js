@@ -87,15 +87,8 @@ function createTiles(res,i){
 
 
     //Deklarieren der Variable im <div>
-    var in_wort = "·in·";
-   var title = res.sensors[i].title + in_wort+ res.sensors[i].unit ;
-    if(title=="PM10" || title=="PM2.5"){
-
-        var str1="Feinstaub:";
-        var str2=title;
-        title=str1+str2;
-
-    }
+    var in_wort = " ";
+   var title = res.sensors[i].title +"("+ res.sensors[i].unit+")" ;
 
    title = title.replace(" ","");    
 
@@ -115,12 +108,13 @@ function createTiles(res,i){
         wert_fuer_h1=res.sensors[i].lastMeasurement.value;
     
     // Parameter in Tile Vorlage einsetzen
-    var tile =
-        "<div class='cell front' id='tile"+i+"'"+"title="+title+">"+
-        "<label class='switch medium'>"+
+    /*        "<label class='switch medium'>"+
         "<input id='tile"+i+"_check"+"'"+"type='checkbox'>"+
         "<span class='slider round'>"+"</span>"+
         "</label>"+
+        */
+    var tile =
+        "<div class='cell front' id='tile"+i+"'"+"title="+title+">"+
         "<h1 style='font-family:Brix-slab' id='tile"+i+"_h1"+"'"+"  class='temp' >"+wert_fuer_h1+"</h1>"+
         "<time id='tile"+i+
         "<span class='hum'' >"+"</span>"+
@@ -194,7 +188,6 @@ function createTiles(res,i){
 /* Funktion die in einem 60 Sekunden Intervall gecalled wird um die Messwerte zu aktualisieren  */
 
 function updateTiles(senseboxid){
-
     if(senseboxid!==null){
 
         $.ajax({

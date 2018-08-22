@@ -9,12 +9,17 @@ html, body {
     margin: 0px;
     padding: 0px;
     font-family: Brix-slab !important;
-
   }
 
 
 
-.row { width: 100%; display: table; table-layout: fixed; height: 33.3%;margin-right: 0;margin-left:0 }
+.row { width: 100%; 
+    display: table;
+     table-layout: fixed;
+      height: 33.3%;
+      margin-right: 0;
+      margin-left:0;
+     }
 .row_3 {
     height: calc(33.3% + 1px);
 }
@@ -29,6 +34,7 @@ html, body {
     vertical-align: middle;
     height: 100%;
     width:inherit;
+
 
 }
 

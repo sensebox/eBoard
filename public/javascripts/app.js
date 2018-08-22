@@ -19,13 +19,11 @@ $(document ).ready(function() {
     })
         .then((senseboxid) => {
                 ajaxRequest(senseboxid);
-                // Intervall nachdem die Seite geladen wurde Standardmäßig auf 1 Minute gesetzt
-                interval1=
-                    setInterval(function(){
-                    updateTiles(senseboxid)
-                },
-                3600000);
-    });
+                return senseboxid
+    })
+    .then((senseboxid)=>{
+        setInterval(function(){  updateTiles(senseboxid); }, 10000);
+    })
     $('#Settings').on('click',function(){
         swal({
             text: "Einstellungen",
