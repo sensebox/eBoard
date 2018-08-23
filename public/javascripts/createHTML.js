@@ -62,9 +62,9 @@ function ajaxRequest(senseboxid){
         //Fehlermeldung
         swal({
             title: "Error!",
-            text: "You have given an empty ID please try again ",
+            text: "Ungültige ID",
             icon: "error",
-            button:"Try Again!",
+            button:"Neue ID ",
           })
           .then((willReload)=>{
               if(willReload) {
