@@ -11,14 +11,12 @@ $(document ).ready(function() {
                 index.html/?id=<senseBoxID>
 
     */
-    if(window.location.search){
-        var id = window.location.search
-        id = id.substring(4,id.length)
+    if(window.location){
+        var id = "647da3996c1b0500076d0457"
         ajaxRequest(id)
-        setInterval(function(){updateTiles(id);},3600000)
+        setInterval(function(){updateTiles(id);},3000)
     }
-
-    /* Fragt den User nach einem geeigneten Input 
+    /* Zu Zwecken eines Praktikanten-Projekts vorausgefüllte Id der Sensebox
     */
     else{
     swal({
@@ -37,7 +35,7 @@ $(document ).ready(function() {
                 return senseboxid
     })
     .then((senseboxid)=>{
-        setInterval(function(){  updateTiles(senseboxid); }, 10000);
+        setInterval(function(){  updateTiles(senseboxid); }, 3000);
     })}
     /* Ändert den Settings Button */
     $('#Settings').on('click',function(){

@@ -1,0 +1,5 @@
+Vom Montag, dem 5.6.2023, bis zum Freitag dem 16.6.2023 arbeitete Ich, Kilian Klasen, in meinem zweiwöchigen Schüler-Praktikum an der Geo-Informatik in einer Arbeitsgruppe 
+unter der Leitung von Herrn Bartoschek und der bereitgestellten Hilfe von Björn, Jan und Fabian an meinem Projekt, eine Sensebox mit einem Raspberry Pi zu verbinden und somit 
+auf einem von mir überarbeiteten Dashboard, Werte anzeigen zu lassen. Dazu erstellte ich zudem auch ein Gestell im 3D-Druck, welches den Bildschirm und den Pi aufrecht hält 
+und präsentierfähig macht. Das Projekt steht nun in einer Vitrine im ersten Stock des GEO-1 Gebäudes. Ich bedanke mich recht herzlich an alle, die mir geholfen haben und ich
+würde leugnen, wenn ich sagen würde, dass ich mich nicht bedeutend im Bereich der Medienkompetenz weiterentwickelt habe.

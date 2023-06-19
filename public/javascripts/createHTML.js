@@ -199,7 +199,8 @@ function updateTiles(senseboxid){
                     // Update nur Messwerte und Zeit die es her ist 
                     document.getElementById("tile"+i+"_h1").innerHTML = res.sensors[i].lastMeasurement.value
                     // Ggf. müssen Styles geändert werden(e.g. Temperatur steigt an sodass Tile rot werden soll)
-                    updateBackground(res,i);
+                    // updateBackground(res,i);
+                    createBackground(res,i);
                 }
 
             },
